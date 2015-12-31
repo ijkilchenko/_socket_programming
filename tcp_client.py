@@ -2,6 +2,12 @@ import socket
 
 def main():
     host = '127.0.0.1'
+    try:
+        settings = open('./settings.txt', 'r').readlines()
+        if len(settings) > 0:
+            host = settings[0]
+    except Exception as e:
+        print(str(e))
     port = 5000
 
     s = socket.socket()
